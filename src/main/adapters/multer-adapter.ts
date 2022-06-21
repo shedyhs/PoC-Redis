@@ -25,7 +25,7 @@ const upload = multer({
     },
   }),
   fileFilter: (req, file, cb) => {
-    loggerGateway.info(`Upload file filter. File: ${JSON.stringify(file)}`);
+    console.log(`Upload file filter. File: ${JSON.stringify(file)}`);
     const allowedFormats = [
       'image/jpeg',
       'image/pjpeg',
