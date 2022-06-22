@@ -1,7 +1,5 @@
 import { Express, json } from 'express';
 import helmet from 'helmet';
-import { expressAdaptMiddleware } from '../adapters/express-middleware-adapter';
-import { container } from '../di/container';
 
 export const setupMiddlewares = (app: Express): void => {
   app.use(json());
@@ -12,5 +10,5 @@ export const setupMiddlewares = (app: Express): void => {
     res.set('access-control-allow-headers', '*');
     next();
   });
-  app.use(expressAdaptMiddleware(container.resolve('loggerMiddleware')));
+  // app.use(expressAdaptMiddleware(container.resolve('loggerMiddleware')));
 };

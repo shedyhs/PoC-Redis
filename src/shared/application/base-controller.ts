@@ -29,12 +29,17 @@ export abstract class BaseController {
           return { data: { error: err.message }, statusCode: 403 };
         case ApplicationErrors.NotFoundError:
           return { data: { error: err.message }, statusCode: 404 };
+        case ApplicationErrors.RequestTimeout:
+          return { data: { error: err.message }, statusCode: 408 };
         case ApplicationErrors.ConflictError:
           return { data: { error: err.message }, statusCode: 409 };
         default:
           // eslint-disable-next-line no-console
           console.error(err.message);
-          return { data: { error: 'Internal Server Error' }, statusCode: 500 };
+          return {
+            data: { error: 'Internal Server Error', stack: err.stack },
+            statusCode: 500,
+          };
       }
     }
   }

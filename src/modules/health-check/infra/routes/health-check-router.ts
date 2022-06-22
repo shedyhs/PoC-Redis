@@ -8,3 +8,8 @@ healthCheckRouter.get(
   '/health-check',
   expressAdaptRoute(container.resolve('healthCheckController')),
 );
+
+healthCheckRouter.get('/teste', (req, res) => {
+  console.log(req.body);
+  return res.send({ ok: true });
+});

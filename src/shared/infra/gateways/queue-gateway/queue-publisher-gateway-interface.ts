@@ -1,7 +1,7 @@
-type IPublishMessage = {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export type IPublishMessage = {
   queueName: string;
   keyId: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload: any;
 };
 

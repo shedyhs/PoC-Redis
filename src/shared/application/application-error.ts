@@ -26,4 +26,11 @@ export namespace ApplicationErrors {
       this.name = 'ConflictError';
     }
   }
+
+  export class RequestTimeout extends Error {
+    constructor(message?: string) {
+      super(message);
+      this.name = 'RequestTimeout';
+    }
+  }
 }
